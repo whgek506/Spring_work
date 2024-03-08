@@ -1,0 +1,11 @@
+package sample03;
+
+public class MessageBeanKo {
+	
+	private int num; //필드, 초기화
+
+	public MessageBeanKo() {
+		System.out.println("MessageBeanKo 기본 생성자"); //호출 시 출력
+	}
+
+}

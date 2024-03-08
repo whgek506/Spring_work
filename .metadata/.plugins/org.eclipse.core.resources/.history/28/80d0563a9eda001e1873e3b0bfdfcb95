@@ -1,0 +1,29 @@
+package sample02;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Component
+public class CalcAdd implements Calc{
+	private int x;
+	private int y;
+	
+	@Autowired
+	public void setX(int x) {
+		this.x = x;
+	}
+	@Autowired
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	@Override
+	public void calculate() {
+		System.out.println(x + " + " + y + "=" + (x+y));
+		
+	}
+
+}

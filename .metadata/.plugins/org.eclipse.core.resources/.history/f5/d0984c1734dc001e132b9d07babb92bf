@@ -1,0 +1,19 @@
+package user.main;
+
+public class HelloSpring {
+	
+	public void menu() {
+	int num;
+	
+	while(true) {
+		System.out.println();
+	} //while
+	
+}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

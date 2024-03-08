@@ -1,0 +1,38 @@
+package sample03;
+
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+//@RequiredArgsConstructor : 초기화 되지않은 final 필드나, @NonNull 이 붙은 필드에 대해 생성자를 생성해줌
+@RequiredArgsConstructor
+public class SungJukImpl implements SungJuk{
+	@NonNull
+	private SungJukDTO sungJukDTO; //생성자 가져오기
+	
+	int tot;
+	double avg;
+	
+	@Override
+	public void calcTot() {
+		tot = sungJukDTO.getKor()+sungJukDTO.getEng()+sungJukDTO.getMath();
+	}
+
+	@Override
+	public void calcAvg() {
+		avg = tot/3.0;
+	}
+
+	@Override
+	public void display() {
+		System.out.println(" 이름" + "\t" + "국어"+ "\t" + "영어"+ "\t" + "수학"+ "\t" + "총점"+ "\t" + "평균");
+		System.out.println(SungJukDTO
+							+ tot + "\t" 
+							+ String.format("%.2f", avg));
+	}
+
+	@Override
+	public void modify() {
+		
+	}
+
+}

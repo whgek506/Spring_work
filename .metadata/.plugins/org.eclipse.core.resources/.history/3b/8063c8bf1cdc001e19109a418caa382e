@@ -1,0 +1,69 @@
+package sample01;
+
+import lombok.Setter;
+
+//핵심 코드 짜는 곳
+public class MessageBeanImpl implements MessageBean{
+	@Setter
+	private String str;
+
+	@Override
+	public void showPrintBefore() {
+		System.out.println("showPrintBefore 메세지 = " + str); //핵심 코드
+	}
+
+	@Override
+	public void viewPrintBefore() {
+		try {
+			Thread.sleep(1000); //CPU 1/1000(1초) 휴식 후 핵심 코드 실행
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("viewPrintBefore 메세지 = " + str); //핵심 코드
+		
+	}
+
+	@Override
+	public void showPrintAfter() {
+		System.out.println("showPrintAfter 메세지 = " + str); //핵심 코드
+	}
+
+	@Override
+	public void viewPrintAfter() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("viewPrintAfter 메세지 = " + str); //핵심 코드
+	}
+
+	@Override
+	public void showPrint() {
+		System.out.println("showPrint 메세지 = " + str); //핵심 코드
+		
+	}
+
+	@Override
+	public void viewPrint() {
+		System.out.println("viewPrint 메세지 = " + str); //핵심 코드
+		
+	}
+	
+	@Override
+	public void display() {
+		System.out.println("display 메세지 = " + str); //핵심 코드
+	}
+}
+
+/*
+Target : 
+JoinPoint : public void showPrintBefore()
+			public void viewPrintBefore()
+			public void display()
+
+PointCut :  public void showPrintBefore()
+			public void viewPrintBefore();
+
+언제 : before 함수 수행 후 pointcut 함수에 끼어들어감
+*/

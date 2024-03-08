@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- sample01 -->
+	<!-- MessageBeanImpl messageBeanImpl = new MessageBeanImpl("사과");-->
+	<bean id="messageBeanImpl" class="sample01.MessageBeanImpl">
+		<constructor-arg>
+			<value>사과</value>
+		</constructor-arg>
+		<property name="cost">
+			<value>5000</value>
+		</property>
+		<property name="qty" value="3" />
+	</bean>
+	
+	<!-- sample02 -->
+	<bean id="calcAdd" class="sample02.CalcAdd">
+		<property name="x" value="25"></property>
+		<property name="y" value="36"></property>
+	</bean>
+	<bean id="calcMul" class="sample02.CalcMul">
+		<property name="x" value="25"></property>
+		<property name="y" value="36"></property>
+	</bean>
+	
+	<!-- sample03 -->
+	<bean id="sungJukDTO" class="sample03.SungJukDTO">
+		<property name="name" value="홍길동"/>
+		<property name="kor" value="97"/>
+		<property name="eng" value="100"/>
+		<property name="math" value="95"/>
+	</bean>
+	
+	<bean id="sungJukImpl" class="sample03.SungJukImpl">
+	<!-- ref="" == <bean id=""> 일치 시켜주기 -->
+	<constructor-arg ref="sungJukDTO"/>
+	</bean>
+	
+	<!-- sapmle04 -->
+	<bean id="helloSpring" class="sample04.HelloSpring"/>
+	
+	<bean id="sungJukInput" class="sample04.SungJukInput">
+		<property name="sungJukDTO2" ref="sungJukDTO2"></property> <!-- bean id="sungJukDTO2" 값 사용(참조) -->
+		<property name="list" ref="arrayList"></property> <!-- id가 arrayList인 값을 얻어서 sample04.SungJukInput에 전달 -->
+	</bean>
+	
+	<bean id="sungJukOutput" class="sample04.SungJukOutput">
+		<property name="list" ref="arrayList"></property>
+	</bean>
+	
+	<bean  id="sungJukUpdate" class="sample04.SungJukUpdate">
+		<property name="list" ref="arrayList"></property>
+	</bean>
+
+	<bean id="sungJukDelete" class="sample04.SungJukDelete">
+	
+	</bean>
+	
+	<bean id="sungJukDTO2" class="sample04.SungJukDTO2" scope="prototype"/> <!-- prototype: 각각의 데이터를 따로 저장해야 하기 때문 --> 
+	
+	<bean id="arrayList" class="java.util.ArrayList"/> <!-- == <util:list id="arrayList" class="java.util.ArrayList"></util:list> -->
+	
+	
+</beans>
+
+<!-- * 생성자 Injection 사용 시 *
+	MessageBeanImpl messageBeanImpl = new MessageBeanImpl(); 기본 생성자 자동 호출(클래스에 생성자가 하나도 없어야 실행) 
+	-> 	첫 번째 방법. MessageBean에 기본 생성자를 만들기
+		두 번째 방법. <constructor-arg>를 만들어 value 값 넣어주기
+	
+	*Setter Injection 사용 시 *
+	-> <property name="변수명" value="값" /> 사용
+-->

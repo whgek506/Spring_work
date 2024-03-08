@@ -1,0 +1,17 @@
+package sample04;
+
+import java.util.List;
+
+import lombok.Setter;
+
+public class SungJukDelete implements SungJuk {
+	@Setter
+	private List<SungJukDTO2> list;
+
+	@Override
+	public void execute() {
+		
+		
+	}
+
+}

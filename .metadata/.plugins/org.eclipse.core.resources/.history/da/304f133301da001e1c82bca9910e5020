@@ -1,0 +1,30 @@
+package sample05;
+
+import java.util.Scanner;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
+public class HelloSpring {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		ApplicationContext applicationContext = new FileSystemXmlApplicationContext("applicationContext.xml");
+		SungJuk sungJuk;
+		
+		sungJuk = applicationContext.getBean("sungjuk", SungJuk.class);
+		
+		System.out.println("이름을 입력하세요 : ");
+		String name = scan.next();
+		System.out.println("국어 성적을 입력하세요 : ");
+		int kor = scan.nextInt();
+		System.out.println("영어 성적을 입력하세요 : ");
+		int eng = scan.nextInt();
+		System.out.println("수학 성적을 입력하세요 : ");
+		int math = scan.nextInt();
+		
+
+	}
+
+}

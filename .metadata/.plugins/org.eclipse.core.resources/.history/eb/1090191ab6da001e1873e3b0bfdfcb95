@@ -1,0 +1,17 @@
+package sample03;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@RequiredArgsConstructor
+@Setter
+@Getter
+public class SungJukDTO {
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	
+	
+}

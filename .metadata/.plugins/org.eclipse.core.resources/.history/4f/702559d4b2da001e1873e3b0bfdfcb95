@@ -1,0 +1,13 @@
+package sample03;
+
+import lombok.Setter;
+
+@Setter
+public class SungJukDTO {
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	
+	
+}

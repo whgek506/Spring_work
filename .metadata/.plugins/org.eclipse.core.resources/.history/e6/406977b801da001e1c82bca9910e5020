@@ -1,0 +1,23 @@
+package sample05;
+
+public class SungJukImpl implements SungJuk{
+
+	@Override
+	public void name(String name) {
+		System.out.println("이름 = " + name);
+	}
+
+	@Override
+	public void tot(int kor, int eng, int math) {
+		System.out.println("총 합 = " + (kor+eng+math));
+	}
+
+	@Override
+	public void avg(int kor, int eng, int math) {
+		int tot = kor+eng+math;
+		double avg = tot/3; 
+		System.out.println("평균 = " + String.format("%f", avg));
+		
+	}
+
+}

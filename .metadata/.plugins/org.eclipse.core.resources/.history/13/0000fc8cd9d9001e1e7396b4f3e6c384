@@ -1,0 +1,13 @@
+package sample02;
+
+public class HelloSpring {
+
+	public static void main(String[] args) {
+		MessageBeanKo messageBeanKo = new MessageBeanKo(); //생성자 호출
+		messageBeanKo.sayHello("어쩔");
+		
+		MessageBeanEn messageBeanEn = new MessageBeanEn(); //생성자 호출
+		
+	}
+
+}

@@ -1,0 +1,6 @@
+package sample01;
+
+//공통관심사항 코드 짜는 곳
+public class LoggingAdvice {
+	
+}

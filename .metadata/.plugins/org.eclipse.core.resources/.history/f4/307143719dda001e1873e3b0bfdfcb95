@@ -1,0 +1,18 @@
+package sample02;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class HelloSpring {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		CalcAdd calcadd = (CalcAdd) applicationContext.getBean("calcAdd");
+		CalcMul calcmul = (CalcMul) applicationContext.getBean("caclMul");
+		
+		calcadd.calculate();
+		calcmul.calculate();
+	}
+
+}

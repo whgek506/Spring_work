@@ -1,0 +1,10 @@
+package sample04;
+
+public class CalcAdd implements Calc{
+
+	@Override
+	public void calcint(int x, int y) {
+		System.out.println("25 + 36 = " + (x+y));
+	}
+
+}

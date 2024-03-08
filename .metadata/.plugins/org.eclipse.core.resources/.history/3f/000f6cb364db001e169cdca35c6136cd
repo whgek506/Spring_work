@@ -1,0 +1,49 @@
+package sample04;
+
+import java.util.List;
+import java.util.Scanner;
+
+import lombok.Setter;
+
+public class SungJukDelete implements SungJuk {
+	@Setter
+	private List<SungJukDTO2> list;
+
+	@Override
+	public void execute() {
+		System.out.println();
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("이름을 입력하세요 : ");
+	    String name = scan.next();
+	    
+	    int sw = 0; //수 일치 사용(이름의 존재 여부를 표시하기 위해)
+	    for(SungJukDTO2 sungJukDTO2 : list) {
+	    	if(sungJukDTO2.getName().equals(name)) {
+	    		sw = 1; //sw 숫자의 변화 : 리스트와 일치하는 이름이 있음
+	    	
+	    		System.out.println("이름\t국어\t영어\t수학\t총점\t평균");
+	    		System.out.println(sungJukDTO2);
+	    	    
+	    		System.out.println();
+	    		System.out.println("정말 삭제 하시겠습니까?(Y/N)");
+	    		System.out.println("입력 : ");
+	    		String answer = scan.next();
+	    		
+	    		if(answer.equals("Y")) {
+	    			list.remove(sungJukDTO2);
+	    		}else break;
+	    		
+	    	    System.out.println();
+	    	    System.out.println(name + "님의 데이터를 삭제하였습니다");
+	    	    
+	    	    break; //수행을 다 끝낸 뒤 중복 되는 이름이 없기 때문에 for문 탈출
+	    	    
+	    	} //if
+	    }//for
+	    
+	    if(sw==0) System.out.println("찾고자하는 이름이 없습니다.");
+		
+	}
+
+}

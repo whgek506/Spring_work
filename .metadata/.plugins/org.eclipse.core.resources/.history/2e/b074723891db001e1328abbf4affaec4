@@ -1,0 +1,7 @@
+package sample01;
+
+public interface MessageBean {
+	public void showPrintBefore(); //삽입O
+	public void viewPrintBefore(); //삽입O
+	public void display(); //삽입X
+}

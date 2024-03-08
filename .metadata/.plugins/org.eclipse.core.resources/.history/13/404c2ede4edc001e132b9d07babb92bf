@@ -1,0 +1,38 @@
+package user.service;
+
+import java.util.Scanner;
+
+import user.bean.UserDTO;
+
+public class UserUpdateService implements UserService{
+
+	@Override
+	public void execute() {
+		Scanner scan = new Scanner(System.in);
+		UserDTO userDTO = null;
+		int num;
+		
+		System.out.println("아이디 입력 : ");
+		String id = scan.next();
+		
+		if(id.equals(userDTO.getId())) {
+			num++
+		}
+		
+		if(num==0) {
+			System.out.println("아이디가 존재하지 않습니다.");
+		}
+		
+		
+		/*수정할 아이디 입력 : ~~
+		없으면 : 찾고자 하는 아이디 없음
+		있으면: 이름 아이디 비밀번호  => 한사람 데이터 : queryForObject()
+			  ~    ~     ~
+		수정할 이름 :
+		수정할 비번 :
+		
+		id님의 데이터 수정이 완료 되었습니다.
+		*/
+	}
+
+}

@@ -1,0 +1,13 @@
+package sample02;
+
+public class HelloSpring {
+
+	public static void main(String[] args) {
+		//MessageBeanKo messageBeanKo = new MessageBeanKo(); //생성자 호출
+		//MessageBeanEn messageBeanEn = new MessageBeanEn(); //결합도 100%, 1:1관계
+		
+		MessageBean messageBean = new MessageBeanKo(); //부모 호출 => 결합도 낮추기, 다형성(부모 = 자식)
+		messageBean.sayHello("어쩔");
+	}
+
+}

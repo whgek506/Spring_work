@@ -1,0 +1,43 @@
+package sample03;
+
+
+public class SungJukImpl implements SungJuk{
+	SungJukDTO sungJukDTO = new SungJukDTO();
+	
+	String name = sungJukDTO.getName();
+	int kor = sungJukDTO.getKor();
+	int eng = sungJukDTO.getEng();
+	int math = sungJukDTO.getMath();
+	
+	int tot = kor+eng+math;
+	double avg = tot/3.0;
+	
+	@Override
+	public void calcTot() {
+		System.out.println(tot);
+		
+	}
+
+	@Override
+	public void calcAvg() {
+		System.out.println(avg);
+		
+	}
+
+	@Override
+	public void display() {
+		System.out.println("""
+				이름	국어	영어	수학	총점	평균
+				""");
+		System.out.println(name + " " + kor + " " + eng + " " 
+							+ math + " " + tot +" " + avg);
+		
+	}
+
+	@Override
+	public void modify() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

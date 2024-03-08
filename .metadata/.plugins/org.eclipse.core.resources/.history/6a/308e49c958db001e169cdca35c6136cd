@@ -1,0 +1,53 @@
+package sample04;
+
+import java.util.Scanner;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class HelloSpring {
+	
+	public void menu() {
+		System.out.println();
+		Scanner scan = new Scanner(System.in);
+		SungJuk sungJuk = null;
+		int num;
+		
+		while(true) {
+			System.out.println("******************");
+			 System.out.println("1.입력");
+			 System.out.println("2.출력");
+			 System.out.println("3.수정");
+		     System.out.println("4.삭제");
+		     System.out.println("5.종료");
+		     System.out.println("******************");
+		     System.out.print("번호 : ");
+		     num = scan.nextInt();
+		     
+		     if(num==5) break;
+		     
+		     if(num==1) {
+		    	 sungJuk = new SungJukInput();
+		     }else if(num==2) { 
+		    	 sungJuk = new SungJukOutput();
+		     }else if(num==3) { 
+		    	 sungJuk = new SungJukUpdate();
+		     }else if(num==4) {
+		    	 sungJuk = new SungJukDelete();
+		     }
+		}//while
+	}
+
+	public static void main(String[] args) {
+		//HelloSpring helloSpring = new HelloSpring(); 변동X -> bean 사용 가능
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		HelloSpring helloSpring = applicationContext.getBean("helloSpring", HelloSpring.class);
+		
+		helloSpring.menu();
+		
+		System.out.println();
+		System.out.println("프로그램을 종료합니다.");
+
+	}
+
+}

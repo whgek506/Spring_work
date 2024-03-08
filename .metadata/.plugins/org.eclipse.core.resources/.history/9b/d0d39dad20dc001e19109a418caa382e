@@ -1,0 +1,24 @@
+package sample01;
+
+import org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint;
+
+//공통관심사항 코드 짜는 곳()
+public class LoggingAdvice<MethodInvocationProceedJoinPoint> {
+	
+	public void beforeTrace() { //before
+		System.out.println("before trace");
+	}
+	
+	public void afterTrace() { //After
+		System.out.println("after trace");
+	}
+	
+	public void trace(MethodInvocationProceedingJoinPoint joinpoint)throws Throwable{ //Around
+		//앞에 삽입 될 코드
+		System.out.println("하늘");
+		//핵심 코드 메소드 호출
+		joinpoint.proceed();
+		//뒤에 삽입 될 코드
+		System.out.println("땅");
+	}
+}

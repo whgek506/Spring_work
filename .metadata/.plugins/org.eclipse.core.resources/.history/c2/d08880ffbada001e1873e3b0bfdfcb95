@@ -1,0 +1,26 @@
+package sample03;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Setter
+@Getter
+//1인분
+public class SungJukDTO {
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	
+	@Override
+	public String toString() {
+		return 	name + "\t"
+				+ kor + "\t"
+				+ eng + "\t" 
+				+ math + "\t";
+	}
+	
+	
+}
